@@ -4,14 +4,14 @@ namespace App\DTO;
 
 use DateTime;
 
-readonly class QuoteDTO
+class QuoteDTO
 {
     public function __construct(
-        public int      $destinationId,
-        public DateTime $startDate,
-        public DateTime $endDate,
-        public int      $numberOfTravelers,
-        public array    $coverageOptionIds = [],
+        public readonly int      $destinationId,
+        public readonly DateTime $startDate,
+        public readonly DateTime $endDate,
+        public readonly int      $numberOfTravelers,
+        public readonly array    $coverageOptionIds = [],
         public ?float   $totalPrice = null
     ) {
     }
