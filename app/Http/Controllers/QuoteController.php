@@ -10,6 +10,6 @@ class QuoteController extends Controller
 {
     public function index(): View|Application|Factory
     {
-        return view('quotes.create');
+        return view('pages.quote');
     }
 }
