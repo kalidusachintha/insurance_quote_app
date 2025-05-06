@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Services\Pricing;
+
+use App\DTO\QuoteDTO;
+use App\Services\Pricing\Contracts\PricingStrategyInterface;
+use Illuminate\Support\Facades\Cache;
+
+abstract class BasePricingStrategy implements PricingStrategyInterface
+{
+    public function __construct(protected float $basePrice)
+    {
+    }
+
+    public function calculate(QuoteDTO $quoteDTO, array $coverageOptions): float
+    {
+        $cacheKey = $this->generateCacheKey($quoteDTO, $coverageOptions);
+        return Cache::remember($cacheKey, now()->addHours(1), function () use ($quoteDTO, $coverageOptions) {
+            $coveragePrice = collect($coverageOptions)->sum('price');
+
+            return $quoteDTO->numberOfTravelers * ($this->basePrice + $coveragePrice);
+        });
+    }
+
+    protected function generateCacheKey(QuoteDTO $quoteDTO, array $coverageOptions): string
+    {
+        $coverageIds = collect($coverageOptions)->pluck('id')->sort()->implode('-');
+        return sprintf(
+            'price_calculation_%s_%s_%s_%d_%s',
+            static::class,
+            $quoteDTO->startDate->format('Y-m-d'),
+            $quoteDTO->endDate->format('Y-m-d'),
+            $quoteDTO->numberOfTravelers,
+            $coverageIds
+        );
+    }
+}
