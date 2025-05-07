@@ -8,10 +8,20 @@ use Illuminate\Support\Facades\Cache;
 
 abstract class BasePricingStrategy implements PricingStrategyInterface
 {
+    /**
+     * @param float $basePrice
+     */
     public function __construct(protected float $basePrice)
     {
     }
 
+    /**
+     * Calculate price with options
+     *
+     * @param QuoteDTO $quoteDTO
+     * @param $coverageOptions
+     * @return float
+     */
     public function calculate(QuoteDTO $quoteDTO, $coverageOptions): float
     {
         $cacheKey = $this->generateCacheKey($quoteDTO, $coverageOptions);
@@ -22,6 +32,13 @@ abstract class BasePricingStrategy implements PricingStrategyInterface
         });
     }
 
+    /**
+     * Generate cache key for repeated request
+     *
+     * @param QuoteDTO $quoteDTO
+     * @param $coverageOptions
+     * @return string
+     */
     protected function generateCacheKey(QuoteDTO $quoteDTO, $coverageOptions): string
     {
         $coverageIds = $coverageOptions->pluck('id')->sort()->implode('-');
