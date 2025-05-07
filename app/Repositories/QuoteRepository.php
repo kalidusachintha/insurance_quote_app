@@ -14,8 +14,7 @@ class QuoteRepository implements QuoteRepositoryInterface
      */
     public function __construct(
         public Quote $quote
-    ) {
-    }
+    ) {}
 
     /**
      * Create quote
@@ -34,7 +33,7 @@ class QuoteRepository implements QuoteRepositoryInterface
                 'total_price' => $quoteDTO->totalPrice,
             ]);
 
-            if (!empty($quoteDTO->coverageOptionIds)) {
+            if (! empty($quoteDTO->coverageOptionIds)) {
                 $quote->coverageOptions()->attach($quoteDTO->coverageOptionIds);
             }
 

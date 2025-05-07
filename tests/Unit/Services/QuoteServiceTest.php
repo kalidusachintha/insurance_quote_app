@@ -52,13 +52,13 @@ describe('Testing quote services', function () {
             CoverageOption::factory()->make([
                 'id' => 1,
                 'name' => 'Medical',
-                'base_price' => 50
+                'base_price' => 50,
             ]),
             CoverageOption::factory()->make([
                 'id' => 2,
                 'name' => 'Cancellation',
-                'base_price' => 30
-            ])
+                'base_price' => 30,
+            ]),
         ]);
 
         $this->destinationRepository->shouldReceive('findDestinationById')
@@ -81,7 +81,6 @@ describe('Testing quote services', function () {
             ->with($quoteDTO, $coverageOptions)
             ->andReturn(160.00);
 
-
         $result = $this->quoteService->calculateQuote($quoteDTO);
 
         expect($result)->toBe(160.00);
@@ -98,7 +97,7 @@ describe('Testing quote services', function () {
             totalPrice: 160.00
         );
 
-        $quote = new Quote();
+        $quote = new Quote;
         $quote->id = 1;
         $quote->total_price = 160.00;
 
@@ -111,7 +110,7 @@ describe('Testing quote services', function () {
 
         expect($result)
             ->toBeInstanceOf(Quote::class)
-            ->and((float)$result->total_price)->toBe(160.00);
+            ->and((float) $result->total_price)->toBe(160.00);
     });
 
 });

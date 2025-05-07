@@ -24,6 +24,7 @@ class CoverageOption extends Model
 
     /**
      * Get quotes
+     *
      * @return BelongsToMany
      */
     public function quotes(): BelongsToMany

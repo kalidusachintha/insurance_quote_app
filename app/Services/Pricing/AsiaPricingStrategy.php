@@ -2,7 +2,4 @@
 
 namespace App\Services\Pricing;
 
-class AsiaPricingStrategy extends BasePricingStrategy
-{
-
-}
+class AsiaPricingStrategy extends BasePricingStrategy {}

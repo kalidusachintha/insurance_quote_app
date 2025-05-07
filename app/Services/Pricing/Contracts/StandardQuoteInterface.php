@@ -2,7 +2,4 @@
 
 namespace App\Services\Pricing\Contracts;
 
-interface StandardQuoteInterface extends BaseQuoteServiceInterface
-{
-
-}
+interface StandardQuoteInterface extends BaseQuoteServiceInterface {}

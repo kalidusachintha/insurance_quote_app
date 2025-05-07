@@ -7,14 +7,13 @@ use DateTime;
 class QuoteDTO
 {
     public function __construct(
-        public readonly int      $destinationId,
+        public readonly int $destinationId,
         public readonly DateTime $startDate,
         public readonly DateTime $endDate,
-        public readonly int      $numberOfTravelers,
-        public readonly array    $coverageOptionIds = [],
-        public ?float   $totalPrice = null
-    ) {
-    }
+        public readonly int $numberOfTravelers,
+        public readonly array $coverageOptionIds = [],
+        public ?float $totalPrice = null
+    ) {}
 
     public static function fromArray(array $data): self
     {

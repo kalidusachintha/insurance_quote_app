@@ -14,16 +14,22 @@ use Livewire\Component;
 class QuoteForm extends Component
 {
     public Collection $destinations;
+
     public Collection $coverageOptions;
+
     public int $destinationId;
+
     public string $startDate;
+
     public string $endDate;
+
     public int $numberOfTravelers = 1;
+
     public array $selectedCoverageOptions = [];
 
     public array $quote = [];
-    public bool $isLoading = false;
 
+    public bool $isLoading = false;
 
     protected function rules()
     {
@@ -54,7 +60,7 @@ class QuoteForm extends Component
         DestinationRepositoryInterface $destinationRepository,
         CoverageOptionsRepositoryInterface $coverageOptionRepository
     ) {
-        $this->destinations =  $destinationRepository->getAllDestinations();
+        $this->destinations = $destinationRepository->getAllDestinations();
         $this->coverageOptions = $coverageOptionRepository->getAllCoverageOptions();
         $this->startDate = now()->format('Y-m-d');
         $this->endDate = now()->addDays(7)->format('Y-m-d');
@@ -80,7 +86,7 @@ class QuoteForm extends Component
             $this->setQuote($quote);
 
         } catch (\Exception $e) {
-            $this->addError('form', 'An error occurred while calculating your quote: ' . $e->getMessage());
+            $this->addError('form', 'An error occurred while calculating your quote: '.$e->getMessage());
         } finally {
             $this->isLoading = false;
         }
@@ -94,7 +100,7 @@ class QuoteForm extends Component
             'endDate',
             'numberOfTravelers',
             'selectedCoverageOptions',
-            'quote'
+            'quote',
         ]);
 
         $this->startDate = now()->format('Y-m-d');

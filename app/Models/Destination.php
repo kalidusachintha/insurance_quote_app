@@ -22,6 +22,7 @@ class Destination extends Model
     ];
 
     /** Get Quotes
+     *
      * @return HasMany
      */
     public function quotes(): HasMany

@@ -10,5 +10,4 @@ interface BaseQuoteServiceInterface
     public function calculateQuote(QuoteDTO $quoteDTO): float;
 
     public function createQuote(QuoteDTO $quoteDTO): Quote;
-
 }

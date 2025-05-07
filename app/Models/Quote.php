@@ -19,7 +19,7 @@ class Quote extends Model
         'number_of_travelers',
         'total_price',
         'client_ip',
-        'user_agent'
+        'user_agent',
     ];
 
     protected $casts = [
@@ -34,13 +34,14 @@ class Quote extends Model
         parent::boot();
 
         static::creating(function ($quote) {
-           $quote->client_ip = request()->ip();
-           $quote->user_agent = request()->userAgent();
+            $quote->client_ip = request()->ip();
+            $quote->user_agent = request()->userAgent();
         });
     }
 
     /**
      * Get destinations
+     *
      * @return BelongsTo
      */
     public function destination(): BelongsTo
@@ -50,6 +51,7 @@ class Quote extends Model
 
     /**
      * Get coverage options
+     *
      * @return BelongsToMany
      */
     public function coverageOptions(): BelongsToMany

@@ -2,7 +2,4 @@
 
 namespace App\Services\Pricing;
 
-class EuropePricingStrategy extends BasePricingStrategy
-{
-
-}
+class EuropePricingStrategy extends BasePricingStrategy {}

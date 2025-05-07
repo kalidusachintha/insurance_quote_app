@@ -23,8 +23,7 @@ class QuoteService implements StandardQuoteInterface
         private CoverageOptionsRepositoryInterface $coverageOptionRepository,
         private QuoteRepositoryInterface $quoteRepository,
         private PricingStrategyFactory $pricingStrategyFactory,
-    ) {
-    }
+    ) {}
 
     /**
      * Calculate the Quote

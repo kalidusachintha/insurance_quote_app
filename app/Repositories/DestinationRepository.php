@@ -11,8 +11,7 @@ class DestinationRepository implements DestinationRepositoryInterface
 {
     public function __construct(
         public Destination $destination
-    ){
-    }
+    ) {}
 
     /**
      * Returns All the destinations
@@ -22,7 +21,7 @@ class DestinationRepository implements DestinationRepositoryInterface
     public function getAllDestinations(): Collection
     {
         return Cache::remember('destinations', now()->addHours(12), function () {
-            return $this->destination->select('id','name','code','base_price')->get();
+            return $this->destination->select('id', 'name', 'code', 'base_price')->get();
         });
     }
 

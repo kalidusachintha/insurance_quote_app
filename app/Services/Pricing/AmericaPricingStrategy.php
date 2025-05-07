@@ -2,7 +2,4 @@
 
 namespace App\Services\Pricing;
 
-class AmericaPricingStrategy extends BasePricingStrategy
-{
-
-}
+class AmericaPricingStrategy extends BasePricingStrategy {}

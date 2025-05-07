@@ -14,8 +14,7 @@ class CoverageOptionRepository implements CoverageOptionsRepositoryInterface
      */
     public function __construct(
         public CoverageOption $coverageOption
-    ){
-    }
+    ) {}
 
     /**
      * Returns all the coverage options
@@ -25,7 +24,7 @@ class CoverageOptionRepository implements CoverageOptionsRepositoryInterface
     public function getAllCoverageOptions(): Collection
     {
         return Cache::remember('coverage_options', now()->addHours(12), function () {
-            return $this->coverageOption->select('id','name','code','price')->get();
+            return $this->coverageOption->select('id', 'name', 'code', 'price')->get();
         });
     }
 
