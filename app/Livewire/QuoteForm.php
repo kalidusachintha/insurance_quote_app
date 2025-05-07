@@ -116,7 +116,7 @@ class QuoteForm extends Component
             'end_date' => $quote->end_date->format('Y-m-d'),
             'number_of_travelers' => $quote->number_of_travelers,
             'coverage_options' => $quote->coverageOptions->pluck('name')->toArray(),
-            'total_price' => number_format($quote->total_price, 2),
+            'total_price' => number_format((float)$quote->total_price, 2),
             'trip_duration' => $quote->start_date->diffInDays($quote->end_date) + 1,
         ];
     }

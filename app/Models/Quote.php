@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
+/**
+ * @property-read Destination|null $destination
+ */
 class Quote extends Model
 {
     /** @use HasFactory<\Database\Factories\QuoteFactory> */
