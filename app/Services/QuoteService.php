@@ -35,7 +35,7 @@ class QuoteService implements StandardQuoteInterface
     public function calculateQuote(QuoteDTO $quoteDTO): float
     {
         $destination = $this->destinationRepository->findDestinationById($quoteDTO->destinationId);
-        $coverageOptions = $this->coverageOptionRepository->findCoverageOptionsById($quoteDTO->coverageOptionIds)->all();
+        $coverageOptions = $this->coverageOptionRepository->findCoverageOptionsById($quoteDTO->coverageOptionIds);
         $pricingStrategy = $this->pricingStrategyFactory->initializePricing($destination);
 
         return $pricingStrategy->calculate($quoteDTO, $coverageOptions);
