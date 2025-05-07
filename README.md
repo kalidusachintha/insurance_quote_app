@@ -113,16 +113,21 @@ The architecture allows for easy extensions such as:
 - Expanding to include more insurance products
 - Internationalizing the application
 
-## 6. Project setup instructions
+## 6. App Screens
+![img_1.png](img_1.png)
 
-### 6.1 Prerequisites
+![img_2.png](img_2.png)
+
+## 7. Project setup instructions
+
+### 7.1 Prerequisites
 
 - PHP 8.2 or higher
 - Composer
 - MySQL or PostgreSQL
 - Apache or nginx
 
-### 6.2 Installation Steps
+### 7.2 Installation Steps
 
 - Clone the project using `git clone` command
 ````
@@ -133,12 +138,12 @@ cd insurance_quote_app
 - Configure your database in the `.env` file
 - Run `php artisan migrate --seed`
 
-### 6.3 Issues and troubleshooting
+### 7.3 Issues and troubleshooting
 
 - For database connection errors, verify your database credentials and check if the database exists
 - If migrations fail, check if your database user has sufficient privileges
 
-### 6.4 Additional Commands
+### 7.4 Additional Commands
 
 - Run tests: `php artisan test`
 - Clear cache: `php artisan cache:clear`
