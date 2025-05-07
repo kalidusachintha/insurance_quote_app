@@ -19,10 +19,10 @@
     @endif
     @livewireStyles
 </head>
-<body class="bg-gray-100 min-h-screen">
+<body class="bg-gray-100 min-h-screen flex flex-col">
     @include('layouts.header')
 
-    <main class="max-w-6xl mx-auto py-6 sm:px-6 lg:px-8">
+    <main class="max-w-6xl mx-auto py-6 sm:px-6 lg:px-8 flex-grow">
         @yield('content')
     </main>
 
