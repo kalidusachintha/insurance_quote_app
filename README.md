@@ -114,7 +114,7 @@ This Laravel application provides a travel insurance quoting system that allows 
 - Rate limiting for public endpoints
 - No raw SQL queries (uses Eloquent ORM)
 
-## 4.3 Code Quality and Best Practices
+### 4.3 Code Quality and Best Practices
 
 - Add static typing (Used **`Larastan`** for type checking).
 - Detailed PHPDoc comments
