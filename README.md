@@ -99,6 +99,13 @@ This Laravel application provides a travel insurance quoting system that allows 
 - **Feature Tests**: For Livewire components.
 - **Unit Tests**: For Service classes and Repository.
 
+### 3.3 Development stack
+- Laravel (v12)
+- PHP (v8.2)
+- Mysql
+- Apache
+- Livewire (v3)
+
 ## 4. Deliverables
 
 ### 4.1 Scalability & Performance
@@ -156,6 +163,7 @@ cd insurance_quote_app
 - Rename `.env.example `to`.env`
 - Configure your database in the `.env` file
 - Run `php artisan migrate --seed`
+- Run `npm run dev`
 
 ### 7.3 Issues and troubleshooting
 
