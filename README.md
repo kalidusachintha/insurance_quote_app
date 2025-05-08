@@ -9,10 +9,20 @@ This Laravel application provides a travel insurance quoting system that allows 
 
 ```
 ├── Controller
+├── Livewire
+├── DTO
 ├── Service Layer
+├    ├── Pricing 
+├           ├── Contracts 
 ├── Repository Layer
+├    ├── Contracts
 ├── Domain Layer (Models)
 └── Database Layer
+└── Views
+     ├── componets  
+     ├── layouts  
+     ├── livewire  
+     ├── pages  
 ```
 ### 2.2 Design Patterns Implemented
 
@@ -103,6 +113,15 @@ This Laravel application provides a travel insurance quoting system that allows 
 - Input validation and sanitization
 - Rate limiting for public endpoints
 - No raw SQL queries (uses Eloquent ORM)
+
+## 4.3 Code Quality and Best Practices
+
+- Add static typing (Used **`Larastan`** for type checking).
+- Detailed PHPDoc comments
+- Maintaining clean code style (Used **`Laravel pint`**)
+- Meaningful variable and method naming
+- No business logic in controllers (thin controllers, fat models/services).
+- Specific error handling and validation.
 
 ## 5. Future Scalability
 The architecture allows for easy extensions such as:
